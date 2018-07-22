@@ -21,8 +21,6 @@ export class PostFormComponent implements OnInit {
     } else {
       this.postService.savePost(id).subscribe(post => {
         console.log("Post="+post);
-        
-        //alert("post=" + post);
       });
     }
   }
