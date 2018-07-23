@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../services/post.service';
 
 import { Post } from '../../models/Post';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post-form',
@@ -19,7 +20,8 @@ export class PostFormComponent implements OnInit {
     if (!id) {
       alert('Please add post');
     } else {
-      this.postService.savePost(id).subscribe(post => {
+      let obj = {id:1};
+      this.postService.savePost({ id } as Post).subscribe(post => {
         console.log("Post="+post);
       });
     }
